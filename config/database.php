@@ -5,7 +5,7 @@ if (!$host) {
 }
 
 return [
-    'host' => 'tcp:' . (getenv('MYSQLHOST') ?: 'localhost'),,
+    'host' => 'tcp:' . (getenv('MYSQLHOST') ?: 'localhost'),
     'port' => getenv('MYSQLPORT') ?: '3306',
     'dbname' => getenv('MYSQLDATABASE') ?: 'mvc_db',
     'username' => getenv('MYSQLUSER') ?: 'root',
