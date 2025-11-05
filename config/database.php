@@ -1,7 +1,11 @@
 <?php
-// Railway menyediakan MySQL variables otomatis
+$host = getenv('MYSQLHOST');
+if (!$host) {
+    echo "<pre>MYSQLHOST tidak terbaca di environment.</pre>";
+}
+
 return [
-    'host' => getenv('MYSQLHOST') ?: 'localhost',
+    'host' => $host ?: 'localhost',
     'port' => getenv('MYSQLPORT') ?: '3306',
     'dbname' => getenv('MYSQLDATABASE') ?: 'mvc_db',
     'username' => getenv('MYSQLUSER') ?: 'root',
