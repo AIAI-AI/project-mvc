@@ -1,4 +1,5 @@
 <?php
+// Konfigurasi koneksi database untuk Railway
 return [
     'host' => getenv('MYSQLHOST'),
     'port' => getenv('MYSQLPORT'),

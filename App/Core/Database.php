@@ -9,11 +9,14 @@ class Database {
     private $conn;
     
     private function __construct() {
-        $config = require_once __DIR__ . '/../../config/database.php';
-        
+        $config = require __DIR__ . '/../../config/database.php';
+
+        // Pastikan semua variabel terisi (debug di Railway)
+        if (!$config['host'] || !$config['port']) {
+            die("❌ Environment variables MYSQLHOST or MYSQLPORT not found.");
+        }
+
         try {
-            // Tambahkan port jika ada
-            $port = $config['port'] ?? 3306;
             $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
             $this->conn = new PDO($dsn, $config['username'], $config['password']);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,7 +27,7 @@ class Database {
     }
     
     public static function getInstance() {
-        if(self::$instance === null) {
+        if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance;
@@ -33,7 +36,7 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
-    
+
     private function __clone() {}
     public function __wakeup() {}
 }
