@@ -1,14 +1,9 @@
 <?php
-$host = getenv('MYSQLHOST');
-if (!$host) {
-    echo "<pre>MYSQLHOST tidak terbaca di environment.</pre>";
-}
-
 return [
     'host' => getenv('MYSQLHOST'),
-    'port' => getenv('MYSQLPORT') ?: '3306',
-    'dbname' => getenv('MYSQLDATABASE') ?: 'mvc_db',
-    'username' => getenv('MYSQLUSER') ?: 'root',
-    'password' => getenv('MYSQLPASSWORD') ?: 'AisyahTech!2025',
+    'port' => getenv('MYSQLPORT'),
+    'dbname' => getenv('MYSQLDATABASE'),
+    'username' => getenv('MYSQLUSER'),
+    'password' => getenv('MYSQLPASSWORD'),
     'charset' => 'utf8mb4'
 ];
