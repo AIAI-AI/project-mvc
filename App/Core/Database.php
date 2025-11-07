@@ -17,6 +17,7 @@ class Database {
         }
 
         try {
+            $port = $config['port'] ?? 3306;
             $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
             $this->conn = new PDO($dsn, $config['username'], $config['password']);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
