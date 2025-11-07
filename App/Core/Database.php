@@ -11,11 +11,6 @@ class Database {
     private function __construct() {
         $config = require __DIR__ . '/../../config/database.php';
 
-        // Pastikan semua variabel terisi (debug di Railway)
-        if (!$config['host'] || !$config['port']) {
-            die("❌ Environment variables MYSQLHOST or MYSQLPORT not found.");
-        }
-
         try {
             $port = $config['port'] ?? 3306;
             $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};charset={$config['charset']}";
