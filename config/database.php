@@ -1,11 +1,11 @@
 <?php
 // Test connection
 try {
-    $host = getenv('MYSQLHOST');
-    $port = getenv('MYSQLPORT');
-    $db = getenv('MYSQLDATABASE');
-    $user = getenv('MYSQLUSER');
-    $pass = getenv('MYSQLPASSWORD');
+    $host = getenv('MYSQLHOST') ?: 'localhost'; 
+    $port = getenv('MYSQLPORT') ?: '3306';
+    $db = getenv('MYSQLDATABASE') ?: 'mvc_db';
+    $user = getenv('MYSQLUSER') ?: 'root';
+    $pass = getenv('MYSQLPASSWORD') ?: 'AisyahTech!2025';
     
     echo "Connecting to: $host:$port / $db as $user\n";
     
